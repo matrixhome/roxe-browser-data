@@ -1,7 +1,7 @@
 {
     "apps": [{
       "name": "app",
-      "script": "./",
+      "script": "./app.js",
       "cwd": "./",
       "watch":[
           "views"
