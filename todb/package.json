@@ -1,0 +1,16 @@
+{
+  "name": "todb",
+  "version": "1.0.0",
+  "description": "Synchronize block info to db",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kevin",
+  "license": "ISC",
+  "dependencies": {
+    "lowdb": "^1.0.0",
+    "promise-mysql": "^5.0.3",
+    "request": "^2.88.2"
+  }
+}
