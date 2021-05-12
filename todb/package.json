@@ -9,6 +9,7 @@
   "author": "kevin",
   "license": "ISC",
   "dependencies": {
+    "child_process": "^1.0.2",
     "lowdb": "^1.0.0",
     "promise-mysql": "^5.0.3",
     "request": "^2.88.2"

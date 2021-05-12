@@ -130,7 +130,59 @@ async function getAccountDetail (accountname) {
     })
   }
 
-// https://www.coingecko.com/en/coins/roxe
+
+async function getCurrencyBalance (code, account, symbol) {
+    
+  return new Promise(function(resolve) { 
+    const data = {
+      code: code,
+      account: account,
+      symbol: symbol
+    }
+    request.post({
+        url: rpcurl + '/get_currency_balance', 
+        body: JSON.stringify(data)
+      }, function (err, response, body) {
+      if (err) {
+        return console.error('error:', err); // Print the error if one occurred
+      } 
+      if (response && response.statusCode === 200) {
+        const obj = JSON.parse(body)
+        resolve(obj)
+      }
+    })
+  }).then(function(val) {
+    return val
+  }).catch(function(err) {
+      console.err(err)
+  })
+}
+
+
+async function getTransactionByHash (hash) {
+    
+  return new Promise(function(resolve) { 
+    const hash = {
+      hash: hash
+    }
+    request.post({
+        url: rpcurl + '/get_transaction', 
+        body: JSON.stringify(hash)
+      }, function (err, response, body) {
+      if (err) {
+        return console.error('error:', err); // Print the error if one occurred
+      } 
+      if (response && response.statusCode === 200) {
+        const obj = JSON.parse(body)
+        resolve(obj)
+      }
+    })
+  }).then(function(val) {
+    return val
+  }).catch(function(err) {
+      console.err(err)
+  })
+}
 
   module.exports = {
     getAccountDetail: getAccountDetail,
@@ -138,4 +190,6 @@ async function getAccountDetail (accountname) {
     getBlockByID: getBlockByID,
     getTableLow: getTableLow,
     getBlockInfo: getBlockInfo,
+    getCurrencyBalance, getCurrencyBalance,
+    getTransactionByHash: getTransactionByHash
   }

@@ -19,6 +19,8 @@ async function getAccountDetail (accountname) {
         if (response && response.statusCode === 200) {
           const obj = JSON.parse(body)
           resolve(obj)
+        } else {
+          resolve(null)
         }
       })
     }).then(function(val) {
@@ -46,6 +48,8 @@ async function getAccountDetail (accountname) {
           const obj = JSON.parse(body)
           console.log(obj)
           resolve(obj)
+        } else {
+          resolve(null)
         }
       })
     }).then(function(val) {
@@ -121,6 +125,9 @@ async function getAccountDetail (accountname) {
         if (response && response.statusCode === 200) {
           const obj = JSON.parse(body)
           resolve(obj)
+        } else {
+          console.log(response)
+          resolve(null)
         }
       })
     }).then(function(val) {
